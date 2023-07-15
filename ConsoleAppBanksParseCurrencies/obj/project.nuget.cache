@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "6dj4dMH9tZU9sVWqCQRN3k+i2SDwA6f/1E8mRR8GPlXDD42U1AlrKX6LGCXWQGu5DIMr/9f9A63gDE/fui4cBw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Valera\\RiderProjects\\ConsoleAppBanksParseCurrencies\\ConsoleAppBanksParseCurrencies\\ConsoleAppBanksParseCurrencies.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Valera\\.nuget\\packages\\htmlagilitypack\\1.11.49\\htmlagilitypack.1.11.49.nupkg.sha512",
+    "C:\\Users\\Valera\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Valera\\.nuget\\packages\\npgsql\\7.0.4\\npgsql.7.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
