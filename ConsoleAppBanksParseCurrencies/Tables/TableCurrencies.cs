@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using ConsoleAppBanksParseCurrencies.Models;
 using Npgsql;
@@ -6,7 +7,7 @@ namespace ConsoleAppBanksParseCurrencies.Tables;
 
 public class TableCurrencies
 {
-    public NpgsqlConnection _connection;
+    private NpgsqlConnection _connection;
 
     public TableCurrencies(NpgsqlConnection connection)
     {
@@ -27,13 +28,15 @@ public class TableCurrencies
         StringBuilder sqlRequest = new StringBuilder("insert into currencies (usd_bank_buy, usd_bank_sell, bank_name) values ");
         for (int i = 0; i < currencies.Count-1; i++)
         {
-            string currentValue = $"({currencies[i].UsdBankBuy},{currencies[i].UsdBankSell},'{currencies[i].BankName}'),";
+            string currentValue = $"({currencies[i].UsdBankBuy.ToString(new CultureInfo("en-US"))},{currencies[i].UsdBankSell.ToString(new CultureInfo("en-US"))},'{currencies[i].BankName}'),";
             sqlRequest.Append(currentValue);
         }
         
-        string lastValue = $"({currencies[currencies.Count-1].UsdBankBuy},{currencies[currencies.Count-1].UsdBankSell},'{currencies[currencies.Count-1].BankName}'),";
+        string lastValue = $"({currencies[currencies.Count-1].UsdBankBuy.ToString(new CultureInfo("en-US"))},{currencies[currencies.Count-1].UsdBankSell.ToString(new CultureInfo("en-US"))},'{currencies[currencies.Count-1].BankName}')";
         sqlRequest.Append(lastValue);
-        
+
+        string temp = sqlRequest.ToString();
+
         NpgsqlCommand command = new NpgsqlCommand(sqlRequest.ToString(), _connection);
 
         command.ExecuteNonQuery();
