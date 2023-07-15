@@ -35,8 +35,6 @@ public class TableCurrencies
         string lastValue = $"({currencies[currencies.Count-1].UsdBankBuy.ToString(new CultureInfo("en-US"))},{currencies[currencies.Count-1].UsdBankSell.ToString(new CultureInfo("en-US"))},'{currencies[currencies.Count-1].BankName}')";
         sqlRequest.Append(lastValue);
 
-        string temp = sqlRequest.ToString();
-
         NpgsqlCommand command = new NpgsqlCommand(sqlRequest.ToString(), _connection);
 
         command.ExecuteNonQuery();
